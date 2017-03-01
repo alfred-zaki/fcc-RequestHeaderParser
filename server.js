@@ -3,6 +3,8 @@ var express = require("express");
 var app = express();
 var useragent = require('express-useragent');
 
+var port = process.env.PORT || 8080;
+
 app.enable('trust proxy');
 app.use(useragent.express());
 
@@ -17,6 +19,6 @@ app.get('/', function(req, res){
     res.send(response);
 });
 
-app.listen(443, function () {
-  console.log('Request Header Parser app listening on port 8080!');
+app.listen(port, function () {
+  console.log('Request Header Parser app listening on port ' +  port + '!');
 });
